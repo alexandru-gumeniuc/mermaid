@@ -32,5 +32,5 @@ jobs:
 
       - name: Extract Branch Name
         run: |
-          echo "BRANCH=$(env.BRANCH)"
+          echo "BRANCH=$BRANCH"
 
