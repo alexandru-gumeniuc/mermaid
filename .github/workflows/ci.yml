@@ -28,3 +28,9 @@ jobs:
           echo "Branch name : $BRANCH"
           echo "GITHUB_REF : ${GITHUB_REF}"
           echo "${GITHUB_REF##*/}"
+
+
+      - name: Extract Branch Name
+        run: |
+          echo "BRANCH=$(env.BRANCH)"
+
