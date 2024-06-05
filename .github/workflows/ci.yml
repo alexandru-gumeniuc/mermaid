@@ -37,4 +37,5 @@ jobs:
       - name: Push container image for feature branches
         if: startsWith(env.BRANCH, 'feature/') || startsWith(env.BRANCH, 'hotfix/') || startsWith(env.BRANCH, 'bugfix/')
         run: |
-          echo "running if"
+          tag=$(echo env.BRANCH | sed 's/[^a-zA-Z0-9]/-/g')
+          echo "tag=$tag"
