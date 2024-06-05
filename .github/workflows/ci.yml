@@ -32,10 +32,10 @@ jobs:
       - name: Extract Branch Name
         run: |
           echo "BRANCH=$BRANCH"
-          echo "GITHUB_REF_NAME=${GITHUB_REF_NAME}"
+          echo "GITHUB_REF_NAME=${GITHUB_REF_NAME}" >> $GITHUB_ENV
 
       - name: Push container image for feature branches
-        if: startsWith("${GITHUB_REF_NAME}", 'feature/')
+        if: startsWith(env.GITHUB_REF_NAME, 'feature/')
         run: |
           tag=$(echo ${GITHUB_REF_NAME} | sed 's/[^a-zA-Z0-9]/-/g')
           echo "tag=$tag"
