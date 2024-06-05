@@ -34,3 +34,7 @@ jobs:
         run: |
           echo "BRANCH=$BRANCH"
 
+      - name: Push container image for feature branches
+        if: startsWith(env.BRANCH, 'feature/') || startsWith(env.BRANCH, 'hotfix/') || startsWith(env.BRANCH, 'bugfix/')
+        run: |
+          echo "running if"
