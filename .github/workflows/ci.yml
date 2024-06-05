@@ -35,7 +35,7 @@ jobs:
           echo "GITHUB_REF_NAME=${GITHUB_REF_NAME}"
 
       - name: Push container image for feature branches
-        if: startsWith(${GITHUB_REF_NAME}, 'feature/') || startsWith(${GITHUB_REF_NAME}, 'hotfix/') || startsWith(${GITHUB_REF_NAME}, 'bugfix/')
+        if: startsWith("${GITHUB_REF_NAME}", 'feature/')
         run: |
           tag=$(echo ${GITHUB_REF_NAME} | sed 's/[^a-zA-Z0-9]/-/g')
           echo "tag=$tag"
