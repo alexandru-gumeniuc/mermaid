@@ -27,3 +27,4 @@ jobs:
           echo "BRANCH=$(echo ${GITHUB_REF##*/})" >> $GITHUB_ENV
           echo "Branch name : $BRANCH"
           echo "GITHUB_REF : ${GITHUB_REF}"
+          echo "${GITHUB_REF##*/}"
