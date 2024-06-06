@@ -27,13 +27,16 @@ jobs:
           echo "Branch name : $BRANCH"
           echo "GITHUB_REF : ${GITHUB_REF}"
           echo "${GITHUB_REF##*/}"
+          echo "GITHUB_REF_NAME=${GITHUB_REF_NAME}" >> $GITHUB_ENV
 
 
       - name: Extract Branch Name
         run: |
           echo "BRANCH=$BRANCH"
+          echo "GITHUB_REF_NAME=$GITHUB_REF_NAME"
 
       - name: Push container image for feature branches
         if: startsWith(env.BRANCH, 'feature/') || startsWith(env.BRANCH, 'hotfix/') || startsWith(env.BRANCH, 'bugfix/')
         run: |
           echo "running if"
+          
