@@ -28,9 +28,9 @@ jobs:
     steps:
       - name: Extract Branch Name
         run: |
-          if [[ ${{ github.event.inputs.environment_name }} == "test" ]]
+          if [[ "${{ github.event.inputs.environment_name }}" == "" ]]
           then
-            echo "Test it is"
+            echo "Empty it is"
           fi
           echo "BRANCH=$(echo ${GITHUB_REF##*/})" >> $GITHUB_ENV
           echo "Branch name : $BRANCH"
