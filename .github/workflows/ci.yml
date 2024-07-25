@@ -29,7 +29,10 @@ jobs:
     steps:
       - name: Extract Branch Name
         run: |
-          echo ${{ github.event.inputs.environment_name }}
+          if [[ ${{ github.event.inputs.environment_name }} == "test" ]]
+          then
+            echo "Test it is"
+          fi
           echo "BRANCH=$(echo ${GITHUB_REF##*/})" >> $GITHUB_ENV
           echo "Branch name : $BRANCH"
           echo "GITHUB_REF : ${GITHUB_REF}"
