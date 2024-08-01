@@ -37,6 +37,7 @@ jobs:
           ref: ${{ github.event.inputs.branch_name }}
       - name: Extract Branch Name
         run: |
+          echo $GITHUB_RUN_NUMBER
           ls -la
           if [[ "${{ github.event.inputs.environment_name }}" == "" ]]
           then
